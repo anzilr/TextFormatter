@@ -1,31 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Text Formatter and Color Picker for SubEditBot</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"> <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <!-- Font Awesome for icons -->
 </head>
+
 <body>
     <div class="container">
         <div class="profile-picture">
             <img src="profile_picture.jpeg" alt="Profile Picture">
         </div>
         <h1>Text Formatter and Color Picker for SubEditBot</h1>
-        <label for="inputText"></label><textarea id="inputText" rows="5" placeholder="Paste your text here..."></textarea>
+        <label for="inputText"></label><textarea id="inputText" rows="5"
+            placeholder="Paste your text here..."></textarea>
         <div class="button-group">
-            <button onclick="toggleFormat('bold')"><i class="fas fa-bold"></i></button>
-            <button onclick="toggleFormat('italic')"><i class="fas fa-italic"></i></button>
-            <button onclick="toggleFormat('underline')"><i class="fas fa-underline"></i></button>
+            <button onclick="toggleFormat('b')"><i class="fas fa-bold"></i></button>
+            <button onclick="toggleFormat('i')"><i class="fas fa-italic"></i></button>
+            <button onclick="toggleFormat('u')"><i class="fas fa-underline"></i></button>
         </div>
         <div class="color-picker">
-            <label for="colorPicker">Pick a color: </label>
+            <h2>Pick a colour</h2>
             <input type="color" id="colorPicker" onchange="applyColor()">
         </div>
-        <label for="outputText"></label><textarea id="outputText" rows="5" placeholder="Formatted text will appear here..." readonly></textarea>
+        <h2>Align Subtitle</h2>
+        <div class="alignment-container">
+            
+            <div class="alignment-buttons">
+                <button onclick="toggleAlignment('{\\an7}')">TL</button>
+                <button onclick="toggleAlignment('{\\an8}')">TC</button>
+                <button onclick="toggleAlignment('{\\an9}')">TR</button>
+                <button onclick="toggleAlignment('{\\an4}')">ML</button>
+                <button onclick="toggleAlignment('{\\an5}')">MC</button>
+                <button onclick="toggleAlignment('{\\an6}')">MR</button>
+                <button onclick="toggleAlignment('{\\an1}')">BL</button>
+                <button onclick="toggleAlignment('{\\an2}')">BC</button>
+                <button onclick="toggleAlignment('{\\an3}')">BR</button>
+            </div>
+        </div>
+        <label for="outputText"></label><textarea id="outputText" rows="5"
+            placeholder="Formatted text will appear here..." readonly></textarea>
         <button class="copy-button" onclick="copyToClipboard()"><i class="far fa-copy"></i> Copy Formatted Text</button>
     </div>
     <script src="script.js"></script>
 </body>
+
 </html>
