@@ -46,9 +46,28 @@ function copyToClipboard() {
 }
 
 // Allowing pasting plain text only
-document.getElementById('inputText').addEventListener('input', function() {
+document.getElementById('inputText').addEventListener('input', function () {
     let inputText = document.getElementById("inputText").value;
     document.getElementById("outputText").value = inputText;
 });
 
-//<font color="${color}">${inputText}</font>
+// Function to toggle alignment codes
+function toggleAlignment(code) {
+    let outputText = document.getElementById("outputText").value;
+
+    // Check if the button is for "Bottom/Center" alignment
+    if (code === '{\\an2}') {
+        outputText = outputText.replace(/\{\\an[1-9]\}/g, ''); // Remove any existing alignment code
+    } else {
+        // If the alignment code is already present, remove it
+        if (outputText.startsWith(code)) {
+            outputText = outputText.replace(code, '');
+        } else {
+            // Remove any existing alignment code and add the new one
+            outputText = outputText.replace(/\{\\an[1-9]\}/g, '');
+            outputText = code + outputText;
+        }
+    }
+
+    document.getElementById("outputText").value = outputText;
+}
